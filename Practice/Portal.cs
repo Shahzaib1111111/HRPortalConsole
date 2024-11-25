@@ -95,16 +95,6 @@
                 case 4:
                     hr.SortEmployeesByName();
                     goto case 2;
-                case 5:
-                    Serializer<Employee> serialization = new Serializer<Employee>();
-
-                    string serializedXml = serialization.SerializeXml<Employee>(this.SelectedEmployee);
-
-                    Console.WriteLine(serializedXml);
-
-                    Employee deserializedEmpData = serialization.DeserializeXml(serializedXml);
-
-                    goto case 3;
                 case 6:
                     this.SelectedEmployee.GetAnnualSalary();
                     break;
