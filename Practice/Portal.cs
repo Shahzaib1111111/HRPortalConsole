@@ -34,12 +34,10 @@
                             "2- Show All Employees\n " +
                             "3- Find Employee by id\n " +
                             "4- Sort Employees By Name\n " +
-                            "5- Serialization & Deserialization\n " +
-                            "6- Show Annual Salary\n " +
-                            "7- Promote Employee\n " +
-                            "8- Get Employees of each Department:\n " +
-                            "9- Calculate Total Payroll\n" +
-                            "10- Exit");
+                            "5- Show Annual Salary\n " +
+                            "6- Promote Employee\n " +
+                            "7- Get Employees of each Department:\n " +
+                            "8- Exit");
 
                         input = Helper.TakeInput(1);
 
@@ -72,16 +70,9 @@
                     hr.OnboardEmployees(MessageHandler.PrintResponse);
                     break;
                 case 2:
-                    hr.ShowAllEmployees();
-                    break;
-                case 3:
                     Console.WriteLine("Enter Employee id:");
 
                     int id = Helper.TakeInput(1004);
-
-                    this.SelectedEmployee = hr.FindEmployee(id);
-
-                    this.SelectedEmployee.GetEmployeeData();
 
                     Employee _employee = new FullTimeEmployee();
 
@@ -92,22 +83,19 @@
                         Console.WriteLine("No of Working Hours: {0}", fullTimeEmployee.MonthlyWorkHours);
                     }
                     break;
-                case 4:
+                case 3:
                     hr.SortEmployeesByName();
                     goto case 2;
-                case 6:
+                case 4:
                     this.SelectedEmployee.GetAnnualSalary();
                     break;
-                case 7:
+                case 5:
                     Employee updatedEmployee = this.ProcessPromotion();
                     break;
-                case 8:
+                case 6:
                     hr.GroupEmployeesByDepartment();
                     break;
-                case 9:
-                    hr.CalculateTotalPayroll();
-                    break;
-                case 10:
+                case 7:
                     Console.WriteLine("Program Exited");
                     break;
                 default:

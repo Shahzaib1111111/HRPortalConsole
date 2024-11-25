@@ -8,19 +8,6 @@
 
         public const decimal TenPercent = 0.1m;
 
-        public Employee FindEmployee(int id)
-        {
-            Employee employee = new Employee();
-            try
-            {
-                employee = Employees.FirstOrDefault(emp => emp.Id == id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            return employee;
-        }
 
         public void OnboardEmployees(Action<String> callback)
         {
@@ -102,17 +89,6 @@
             Employees = Employees.OrderBy(emp => emp.Name).ToList();
         }
 
-        public void ShowAllEmployees()
-        {
-            Employees
-                .Select((emp, index) => new { emp, index })
-                .ToList()
-                .ForEach(item =>
-            {
-                Console.WriteLine($"{item.index + 1} - ID: {item.emp.Id}, Name: {item.emp.Name}, Job Title: {item.emp.JobTitle}");
-            });
-        }
-
         public void GroupEmployeesByDepartment()
         {
             IEnumerable<IGrouping<Department, Employee>> groupedEmployees = Employees.GroupBy(e => e.Department);
@@ -127,11 +103,5 @@
             }
         }
 
-        public void CalculateTotalPayroll()
-        {
-            decimal totalPayroll = Employees.Aggregate(0m, (total, employee) => total + employee.MonthlySalary);
-            Console.WriteLine($"Total Payroll: {totalPayroll}");
-
-        }
     }
 }
