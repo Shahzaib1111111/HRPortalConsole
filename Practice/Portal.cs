@@ -33,11 +33,10 @@
                         Console.WriteLine(" 1- Onboarding \n " +
                             "2- Show All Employees\n " +
                             "3- Find Employee by id\n " +
-                            "4- Sort Employees By Name\n " +
-                            "5- Show Annual Salary\n " +
-                            "6- Promote Employee\n " +
-                            "7- Get Employees of each Department:\n " +
-                            "8- Exit");
+                            "4- Show Annual Salary\n " +
+                            "5- Promote Employee\n " +
+                            "6- Get Employees of each Department:\n " +
+                            "7- Exit");
 
                         input = Helper.TakeInput(1);
 
@@ -84,18 +83,15 @@
                     }
                     break;
                 case 3:
-                    hr.SortEmployeesByName();
-                    goto case 2;
-                case 4:
                     this.SelectedEmployee.GetAnnualSalary();
                     break;
-                case 5:
+                case 4:
                     Employee updatedEmployee = this.ProcessPromotion();
                     break;
-                case 6:
+                case 5:
                     hr.GroupEmployeesByDepartment();
                     break;
-                case 7:
+                case 6:
                     Console.WriteLine("Program Exited");
                     break;
                 default:
